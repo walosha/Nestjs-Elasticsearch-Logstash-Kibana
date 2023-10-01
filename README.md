@@ -4,14 +4,27 @@
 
 This GitHub repository contains a Docker Compose configuration for setting up a development environment with the following services:
 
-- NestJS API
-- Elasticsearch
-- Logstash
-- Kibana
-- Filebeat
-- PostgreSQL
-- Cadvisor
-- Caddy
+- **NestJS API**
+  - Database (typeorm).
+  - Seeding.
+  - Config Service (@nestjs/config).
+  - Mailing (nodemailer).
+  - Sign in and sign up via email.
+  - Social sign in (Apple, Facebook, Google, Twitter).
+  - Admin and User roles.
+  - I18N (nestjs-i18n).
+  - File uploads. Support local and Amazon S3 drivers.
+  - Swagger.
+  - E2E and units tests.
+  - Docker.
+  - CI (Github Actions).)
+- **Elasticsearch**
+- **Logstash**
+- **Kibana**
+- **Filebeat**
+- **PostgreSQL**
+- **Cadvisor**
+- **Caddy**
 
 ### Prerequisites
 
@@ -74,3 +87,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ### Author
 
 - Olawale Afuye
+
+### Credits
+
+@Brocoders
+@techvlad
