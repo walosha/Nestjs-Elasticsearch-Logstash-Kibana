@@ -108,6 +108,31 @@ services:
     networks:
       - elk
 
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+    ports:
+      - '8080:8080'
+
+  caddy:
+    image: caddy/caddy:latest
+    container_name: caddy
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - elk
+    depends_on:
+      - nestjs-api
+    restart: always
+
 networks:
   elk:
     driver: bridge
@@ -115,3 +140,5 @@ networks:
 volumes:
   elasticsearch:
   pg_data:
+  caddy_data:
+  caddy_config:
